@@ -509,8 +509,8 @@ html[data-theme="light"] .search-form:focus-within {
         0 10px 30px rgba(0, 0, 0, 0.08),
         0 0 0 3px var(--accent-soft),
         0 0 28px rgba(217, 119, 6, 0.15);
-<<<<<<< Updated upstream
-=======
+
+
 }
 
 /* ============================================================
@@ -877,5 +877,5 @@ html[data-theme="light"] .layout-toggle__btn:hover {
 .empty-state[hidden],
 .error-state[hidden] {
     display: none !important;
->>>>>>> Stashed changes
+
 }

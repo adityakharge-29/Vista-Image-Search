@@ -16,6 +16,32 @@
         <h1 class="main-brand-title">Vista</h1>
         <span class="brand-title">Search, discover, and collect images worth keeping.</span>
         <div class="nav-actions">
+            <div class="layout-toggle" role="group" aria-label="Card layout">
+                <button type="button" class="layout-toggle__btn" data-layout="masonry" aria-label="Masonry layout" title="Masonry">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                        <rect x="1" y="1" width="4.5" height="7"/>
+                        <rect x="8.5" y="1" width="4.5" height="4"/>
+                        <rect x="1" y="10" width="4.5" height="3"/>
+                        <rect x="8.5" y="7" width="4.5" height="6"/>
+                    </svg>
+                </button>
+                <button type="button" class="layout-toggle__btn is-active" data-layout="fixed" aria-label="Fixed layout" title="Fixed 4:3">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                        <rect x="1" y="2" width="5" height="4"/>
+                        <rect x="8" y="2" width="5" height="4"/>
+                        <rect x="1" y="8" width="5" height="4"/>
+                        <rect x="8" y="8" width="5" height="4"/>
+                    </svg>
+                </button>
+                <button type="button" class="layout-toggle__btn" data-layout="square" aria-label="Square layout" title="Square">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                        <rect x="1" y="1" width="5" height="5"/>
+                        <rect x="8" y="1" width="5" height="5"/>
+                        <rect x="1" y="8" width="5" height="5"/>
+                        <rect x="8" y="8" width="5" height="5"/>
+                    </svg>
+                </button>
+            </div>
             <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">Light/Dark</button>
         </div>
     </header>
@@ -23,13 +49,11 @@
     <!-- Hero -->
     <section class="hero">
         <h2 class="hero-title">Find what you're <em>looking for.</em></h2>
-        <!-- <h2 class="hero-title">Search. Browse. <em>Find.</em></h2> -->
-        <p class="hero-sub">A fast, quiet image search — type a topic, hit search, browse, and find what that fits you.</p>
+        <p class="hero-sub">A fast, quiet image search — type a topic, hit search, and browse a grid that fits you.</p>
     </section>
 
     <!-- Segmented tab bar (category chips) -->
     <nav class="header-controls" aria-label="Category tabs">
-        <!-- <div class="level-indicator"><span>ALL</span></div> -->
         <button type="button" class="tab is-active" data-category="nature">Nature</button>
         <button type="button" class="tab" data-category="cities">Cities</button>
         <button type="button" class="tab" data-category="animals">Animals</button>
@@ -61,52 +85,46 @@
     </section>
 
     <!-- Results -->
- <section class="results-section" aria-label="Results">
-    <p id="result-count" class="result-count">Showing 0 results</p>
+    <section class="results-section" aria-label="Results">
+        <p id="result-count" class="result-count">Showing 0 results</p>
 
-    <div class="results-wrapper">
-        <div id="loading-bar" class="loading-bar" aria-hidden="true">
-            <div class="loading-bar__fill"></div>
-        </div>
-
-        <div id="error-state" class="error-state" hidden>
-            <div class="error-state__mark" aria-hidden="true">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <line x1="12" y1="8" x2="12" y2="13"></line>
-                    <line x1="12" y1="16.5" x2="12" y2="16.5"></line>
-                </svg>
+        <div class="results-wrapper">
+            <div id="loading-bar" class="loading-bar" aria-hidden="true">
+                <div class="loading-bar__fill"></div>
             </div>
-            <div class="error-state__title" id="error-state__message">Something went wrong. Please try again.</div>
-            <button type="button" class="error-state__retry" id="error-retry">Retry</button>
-        </div>
 
-        <div id="results" class="results-grid" data-layout="fixed">
-            <div id="empty-state" class="empty-state">
-                <div class="empty-state__mark" aria-hidden="true">
+            <div id="error-state" class="error-state" hidden>
+                <div class="error-state__mark" aria-hidden="true">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="4"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <path d="M21 15l-5-5L5 21"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <line x1="12" y1="8" x2="12" y2="13"></line>
+                        <line x1="12" y1="16.5" x2="12" y2="16.5"></line>
                     </svg>
                 </div>
-                <div class="empty-state__title" id="empty-state__title">Search to see results</div>
-                <div class="empty-state__hint" id="empty-state__hint">Type a topic above and hit Search.</div>
+                <div class="error-state__title" id="error-state__message">Something went wrong. Please try again.</div>
+                <button type="button" class="error-state__retry" id="error-retry">Retry</button>
+            </div>
+
+            <div id="results" class="results-grid" data-layout="fixed">
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-state__mark" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                    </div>
+                    <div class="empty-state__title" id="empty-state__title">Search to see results</div>
+                    <div class="empty-state__hint" id="empty-state__hint">Type a topic above and hit Search.</div>
+                </div>
             </div>
         </div>
-<<<<<<< Updated upstream
     </section>
 
-=======
-    </div>
-</section>
+    <footer class="site-footer">
+        Powered by <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+    </footer>
 
-<footer class="site-footer">
-    Powered by <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
-</footer>
-
-    <!-- <button type="button" id="layout-toggle">Layout: masonry</button>    -->
->>>>>>> Stashed changes
     <script src="script.js"></script>
 </body>
 </html>
