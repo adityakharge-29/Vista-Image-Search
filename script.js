@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-// UI only
-
-=======
 // ============================================================
 // Vista — Part 3: loading, empty, error states + polish
 // ============================================================
@@ -20,7 +16,6 @@ const errorRetry = document.getElementById('error-retry');
 const loadingBar = document.getElementById('loading-bar');
 const tabs = document.querySelectorAll('.tab');
 
->>>>>>> Stashed changes
 // --- Theme toggle ---
 const themeToggle = document.getElementById('theme-toggle');
 const root = document.documentElement;
@@ -31,10 +26,6 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = next === 'dark' ? 'Light' : 'Dark';
 });
 
-<<<<<<< Updated upstream
-// --- Category tab active state (UI only) ---
-const tabs = document.querySelectorAll('.tab');
-=======
 // --- Layout picker ---
 const LAYOUT_KEY = 'vista-layout';
 const layoutButtons = document.querySelectorAll('.layout-toggle__btn');
@@ -58,15 +49,10 @@ layoutButtons.forEach((btn) => {
 });
 
 // --- Category tabs ---
->>>>>>> Stashed changes
 tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
         tabs.forEach((t) => t.classList.remove('is-active'));
         tab.classList.add('is-active');
-<<<<<<< Updated upstream
-    }); 
-});
-=======
 
         const category = tab.dataset.category;
         if (category && category !== 'all') {
@@ -123,7 +109,6 @@ form.addEventListener('submit', (e) => {
 async function runSearch(query) {
     lastQuery = query;
 
-    // 1. Enter loading state
     setLoading(true);
     hideError();
     hideEmptyState();
@@ -170,7 +155,6 @@ async function runSearch(query) {
             })
             .filter(Boolean);
 
-        // 2. Handle empty results
         if (items.length === 0) {
             setLoading(false);
             resultCount.textContent = `0 results`;
@@ -180,7 +164,6 @@ async function runSearch(query) {
             return;
         }
 
-        // 3. Render results
         renderResults(items, query);
         setLoading(false);
     } catch (err) {
@@ -244,4 +227,3 @@ function cleanTitle(raw) {
         .replace(/_/g, ' ')
         .slice(0, 80);
 }
->>>>>>> Stashed changes
