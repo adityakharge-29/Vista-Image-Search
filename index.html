@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista — Find images worth keeping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top navigation ribbon -->
+    <header class="top-nav-bar">
+        <h1 class="main-brand-title">Vista</h1>
+        <span class="brand-title">Search, discover, and collect images worth keeping.</span>
+        <div class="nav-actions">
+            <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">Light/Dark</button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h2 class="hero-title">Find what you're <em>looking for.</em></h2>
+        <!-- <h2 class="hero-title">Search. Browse. <em>Find.</em></h2> -->
+        <p class="hero-sub">A fast, quiet image search — type a topic, hit search, browse, and find what that fits you.</p>
+    </section>
+
+    <!-- Segmented tab bar (category chips) -->
+    <nav class="header-controls" aria-label="Category tabs">
+        <!-- <div class="level-indicator"><span>ALL</span></div> -->
+        <button type="button" class="tab is-active" data-category="nature">Nature</button>
+        <button type="button" class="tab" data-category="cities">Cities</button>
+        <button type="button" class="tab" data-category="animals">Animals</button>
+        <button type="button" class="tab" data-category="architecture">Architecture</button>
+        <button type="button" class="tab" data-category="food">Food</button>
+        <button type="button" class="tab" data-category="travel">Travel</button>
+    </nav>
+
+    <!-- Search control -->
+    <section class="search-band" aria-label="Search">
+        <form id="search-form" class="search-form" role="search">
+            <label for="search-input" class="sr-only">Search for images</label>
+            <span class="search-form__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+            <input
+                type="search"
+                id="search-input"
+                name="q"
+                class="search-input"
+                placeholder="Try 'mountain at sunrise'"
+                autocomplete="off"
+            />
+            <button type="submit" id="search-button" class="search-button">Search</button>
+        </form>
+    </section>
+
+    <!-- Results -->
+    <section class="results-section" aria-label="Results">
+        <p id="result-count" class="result-count">Showing 0 results</p>
+        <div id="results" class="results-grid">
+            <div id="empty-state" class="empty-state">
+                <div class="empty-state__title">Search to see results</div>
+                <div class="empty-state__hint">Type a topic above and hit Search.</div>
+                <div class="empty-state__mark" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <path d="M21 15l-5-5L5 21"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
