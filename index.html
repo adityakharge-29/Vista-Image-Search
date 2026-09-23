@@ -14,10 +14,38 @@
     <!-- Top navigation ribbon -->
     <header class="top-nav-bar">
         <h1 class="main-brand-title">Vista</h1>
-        <span class="brand-title">Search, discover, and collect images worth keeping.</span>
         <div class="nav-actions">
-            <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">Light/Dark</button>
         </div>
+        <span class="brand-title">Search, discover, and collect images worth keeping.</span>
+    <div class="layout-toggle" role="group" aria-label="Card layout">
+        <span class="Layout-text-sk">Layout: </span>
+        <button type="button" class="layout-toggle__btn" data-layout="masonry" aria-label="Masonry layout" title="Masonry">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="1" y="1" width="4.5" height="7"/>
+                <rect x="8.5" y="1" width="4.5" height="4"/>
+                <rect x="1" y="10" width="4.5" height="3"/>
+                <rect x="8.5" y="7" width="4.5" height="6"/>
+            </svg>
+        </button>
+        <button type="button" class="layout-toggle__btn is-active" data-layout="fixed" aria-label="Fixed layout" title="Fixed 4:3">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="1" y="2" width="5" height="4"/>
+                <rect x="8" y="2" width="5" height="4"/>
+                <rect x="1" y="8" width="5" height="4"/>
+                <rect x="8" y="8" width="5" height="4"/>
+            </svg>
+        </button>
+        <button type="button" class="layout-toggle__btn" data-layout="square" aria-label="Square layout" title="Square">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="1" y="1" width="5" height="5"/>
+                <rect x="8" y="1" width="5" height="5"/>
+                <rect x="1" y="8" width="5" height="5"/>
+                <rect x="8" y="8" width="5" height="5"/>
+            </svg>
+        </button>
+        <break></break><break></break>
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">Light/Dark</button>
+    </div>
     </header>
 
     <!-- Hero -->
@@ -77,7 +105,7 @@
             </div>
         </div>
     </section>
-
+    <!-- <button type="button" id="layout-toggle">Layout: masonry</button>    -->
     <script src="script.js"></script>
 </body>
 </html>
