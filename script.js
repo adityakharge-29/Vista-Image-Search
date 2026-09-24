@@ -25,7 +25,7 @@ const EASTER_EGGS = {
     'kanishka': { title: 'Kanishka Arora',  sub: 'Sweetest Soul.' },
     'niyam': { title: 'Niyam',  sub: 'BKL.' },
     'abhinay': { title: 'Abhinav Singh',  sub: 'Eight-Handled Sword Divergent Sila Divine General.' },
-    'shivraj': { title: 'Abhinav Singh',  sub: 'He is never in danger, HE IS THE DANGER.' },
+    'shivraj': { title: 'Shivraj',  sub: 'He is never in danger, HE IS THE DANGER.' },
     'chacha': { title: 'Chacha Vastegena Huyaa',  sub: 'Arey mujhe nhi pata bhai' },
 
 };
