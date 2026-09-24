@@ -24,6 +24,9 @@ const EASTER_EGGS = {
     'vijay thalapathy son': { title: 'B K Tharun Aadhithya',  sub: 'Tamizhan Boy.' },
     'kanishka': { title: 'Kanishka Arora',  sub: 'Sweetest Soul.' },
     'niyam': { title: 'Niyam',  sub: 'BKL.' },
+    'abhinay': { title: 'Abhinav Singh',  sub: 'Eight-Handled Sword Divergent Sila Divine General.' },
+    'shivraj': { title: 'Abhinav Singh',  sub: 'He is never in danger, HE IS THE DANGER.' },
+    'chacha': { title: 'Chacha Vastegena Huyaa',  sub: 'Arey mujhe nhi pata bhai' },
 
 };
 
@@ -272,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Try 'MotoGP Isle Of Man'",
         "Try 'Bull with a Gun'",
         "Try 'Monkey with Jack Daniels'",
-        "Try 'Kanishka Arora'",
+        "Try 'Kanishka'",
         "Try 'Labrador puppy'",
     ];
 
