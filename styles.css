@@ -141,6 +141,7 @@ body::before {
     text-transform: uppercase;
     opacity: 0.9;
     margin: 0;
+    /* padding: 0px 0px 0px 15px; */
 }
 
 .nav-actions {
@@ -149,6 +150,13 @@ body::before {
     gap: 15px;
     font-size: 13px;
     color: var(--text-3);
+}
+
+.Brand-tittle-div {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
 }
 
 .brand-title {
@@ -227,7 +235,7 @@ html[data-theme="light"] .theme-toggle-btn:hover {
     gap: 6px;
     background: rgba(0, 0, 0, 0.45);
     padding: 5px 10px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--border);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -303,7 +311,7 @@ html[data-theme="light"] .tab:hover { color: var(--text); }
     padding: 6px 6px 6px 20px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 50px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -351,7 +359,7 @@ html[data-theme="light"] .tab:hover { color: var(--text); }
     color: #121214;
     background: var(--accent);
     border: none;
-    border-radius: 6px;
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 14px var(--accent-glow);
@@ -850,6 +858,9 @@ html[data-theme="light"] .layout-toggle__btn:hover {
 
     .nav-actions {
         gap: 8px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;    
     }
 
     .layout-toggle {
@@ -878,4 +889,125 @@ html[data-theme="light"] .layout-toggle__btn:hover {
 .error-state[hidden] {
     display: none !important;
 
+}
+
+/* ============================================================
+   LAYOUT CENTERING FIX
+   ============================================================ */
+
+/* Body: center everything as a column, no more left-drift */
+body {
+    align-items: center;
+}
+
+/* Every top-level content section: center itself within the viewport */
+/* .hero,
+.header-controls,
+.search-band,
+.results-section,
+.site-footer {
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* Nav bar: pin brand left, actions right (overrides body's text-align) */
+/* .top-nav-bar {
+    text-align: left;
+} */
+
+/* Hero subtitle: keep it narrow and centered */
+/* .hero-sub {
+    text-align: center;
+} */
+
+/* Results count: centered */
+/* .result-count {
+    text-align: center;
+} */
+
+/* Empty / error states: centered */
+/* .empty-state,
+.error-state {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* ============================================================
+   Nav: three-column layout with truly centered tagline
+   ============================================================ */
+
+.top-nav-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+}
+
+.main-brand-title {
+    justify-self: start;
+}
+
+.brand-title {
+    justify-self: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.nav-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ============================================================
+   Easter egg — full-width centered message
+   ============================================================ */
+
+.egg {
+    grid-column: 1 / -1;   /* span all grid columns */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 100px 20px;
+    text-align: center;
+    animation: egg-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.egg__title {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    /* text-transform: uppercase; */
+    color: var(--accent);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.egg__sub {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-2);
+    letter-spacing: 0.3px;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+@keyframes egg-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

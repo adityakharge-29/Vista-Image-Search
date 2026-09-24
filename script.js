@@ -16,6 +16,17 @@ const errorRetry = document.getElementById('error-retry');
 const loadingBar = document.getElementById('loading-bar');
 const tabs = document.querySelectorAll('.tab');
 
+// --- Easter eggs (override mode — no Wikimedia fetch when matched) ---
+const EASTER_EGGS = {
+    'vista':            { title: 'You found it.',          sub: 'Vista — a small image-search project by Aditya for Kalvium.' },
+    'aditya':           { title: "Hi, I'm Aditya.",        sub: 'B.Tech CSE @ Lovely Professional University × Kalvium.' },
+    'kalvium':          { title: 'Kalvium track.',         sub: 'Software product engineering, in practice.' },
+    'vijay thalapathy son': { title: 'B K Tharun Aadhithya',  sub: 'Tamizhan Boy.' },
+    'kanishka': { title: 'Kanishka Arora',  sub: 'Sweetest Soul.' },
+    'niyam': { title: 'Niyam',  sub: 'BKL.' },
+
+};
+
 // --- Theme toggle ---
 const themeToggle = document.getElementById('theme-toggle');
 const root = document.documentElement;
@@ -108,6 +119,26 @@ form.addEventListener('submit', (e) => {
 // --- Main search function ---
 async function runSearch(query) {
     lastQuery = query;
+    const normalized = query.toLowerCase().trim();
+
+    // EASTER EGG OVERRIDE — no fetch, no grid
+    if (EASTER_EGGS[normalized]) {
+        setLoading(false);
+        hideError();
+        hideEmptyState();
+        results.innerHTML = '';
+        resultCount.textContent = '';
+
+        const egg = EASTER_EGGS[normalized];
+        const eggEl = document.createElement('div');
+        eggEl.className = 'egg';
+        eggEl.innerHTML = `
+            <div class="egg__title">${egg.title}</div>
+            <div class="egg__sub">${egg.sub}</div>
+        `;
+        results.appendChild(eggEl);
+        return;
+    }
 
     setLoading(true);
     hideError();
@@ -227,3 +258,34 @@ function cleanTitle(raw) {
         .replace(/_/g, ' ')
         .slice(0, 80);
 }
+
+// --- Rotating placeholder ---
+document.addEventListener('DOMContentLoaded', () => {
+    const phrases = [
+        "Try 'mountain at sunrise'",
+        "Try 'Top 10 Anime'",
+        "Try 'Monu GPT'",
+        "Try 'F1 car racing'",
+        "Try 'Fair Skin Girl'",
+        "Try 'Vijay Thalapathy'",
+        "Try 'South Latest Movies'",
+        "Try 'MotoGP Isle Of Man'",
+        "Try 'Bull with a Gun'",
+        "Try 'Monkey with Jack Daniels'",
+        "Try 'Kanishka Arora'",
+        "Try 'Labrador puppy'",
+    ];
+
+    let currentIndex = 0;
+    const searchInput = document.getElementById('search-input');
+
+    function rotatePlaceholder() {
+        if (searchInput) {
+            searchInput.placeholder = phrases[currentIndex];
+            currentIndex = (currentIndex + 1) % phrases.length;
+        }
+    }
+
+    rotatePlaceholder();
+    setInterval(rotatePlaceholder, 3000);
+});
